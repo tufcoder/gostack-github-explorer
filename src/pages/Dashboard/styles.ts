@@ -66,6 +66,18 @@ export const Repositories = styled.div`
     background: var(--white);
     transition: transform 0.2s;
 
+    .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 5px;
+      transition: color 0.2s;
+
+      &:hover {
+        color: var(--close);
+      }
+    }
+
     &:hover {
       transform: translateX(10px);
     }

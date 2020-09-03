@@ -1,5 +1,5 @@
-import React, { useState, useEffect, FormEvent } from 'react';
-import { FiChevronRight } from 'react-icons/fi';
+import React, { useState, useEffect, FormEvent, MouseEvent } from 'react';
+import { FiChevronRight, FiX } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 import api from '../../services/api';
@@ -44,8 +44,18 @@ const Dashboard: React.FC = () => {
   ): Promise<void> {
     event.preventDefault();
 
+    const searchedRepository = repositories.find(
+      repository => repository.full_name === newRepository,
+    );
+
+    if (searchedRepository) {
+      setNewRepository('');
+      setInputError(`Repositório ${newRepository} já está listado`);
+      return;
+    }
+
     if (!newRepository) {
-      setInputError('Digite o autor/nome do repositório');
+      setInputError(`Digite o autor/nome do repositório`);
       return;
     }
 
@@ -58,8 +68,24 @@ const Dashboard: React.FC = () => {
       setNewRepository('');
       setInputError('');
     } catch (Err) {
-      setInputError('Erro na busca por esse repositório');
+      setNewRepository('');
+      setInputError(`Erro na busca por ${newRepository}`);
     }
+  }
+
+  function handleCloseRepository(
+    event: MouseEvent<SVGElement>,
+    repositoryName: string,
+  ): void {
+    event.preventDefault();
+
+    const indexRepository = repositories.findIndex(
+      repository => repository.full_name === repositoryName,
+    );
+
+    repositories.splice(indexRepository, 1);
+
+    setRepositories([...repositories]);
   }
 
   return (
@@ -92,8 +118,12 @@ const Dashboard: React.FC = () => {
               <strong>{repository.full_name}</strong>
               <p>{repository.description}</p>
             </div>
-
             <FiChevronRight size={20} />
+            <FiX
+              size={20}
+              className="close"
+              onClick={e => handleCloseRepository(e, repository.full_name)}
+            />
           </Link>
         ))}
       </Repositories>

@@ -40,6 +40,7 @@ export default createGlobalStyle`
     --strong: #3d3d4d;
     --arrow-right: #cbcbd6;
     --error: #c53030;
+    --close: #c53920;
     --text: #737380;
   }
 `;

@@ -3,18 +3,33 @@
 ## Conteúdo
 
 - [Introdução](#introdução)
+- [Lista de Tarefas](#lista-de-tarefas)
 - [Stack](#stack)
-- [Features](#features)
+- [Basic Features](#basic-features)
+- [New Features](#new-features)
 - [Processo de Build](#processo-de-build)
-- [Agradecimento](#agradecimento)
-- [Funcionalidades](#funcionalidades)
-
+- [Agradecimentos](#agradecimentos)
 
 ## Introdução
 
+Aplicação criada dentro do bootcamp GoStack da @Rocketseat. As funcionalidades básicas estão descritas em [Basic Features](#basic-features).
+<br>
 Essa aplicação se conecta na `API do Github` disponível no endereço `https://api.github.com` para listar os repositórios de um autor.
-<br>Vamos utilizar a chave `repository_url` com o endereço `https://api.github.com/repos/{autor}/{repositório}` passando dentro do input o `autor/repositório` e pesquisar.
-<br>Exemplo: `facebook/react`
+<br>
+Vamos utilizar a chave `repository_url` da API com o endereço `https://api.github.com/repos/{autor}/{repositório}` passando dentro do input o `autor/repositório` e listar o repositório pesquisado.
+<br>
+Exemplo: `facebook/react`
+<br>
+<br>
+Adicionei duas novas features: disponíveis em [New Features](#new-features).
+
+## Lista de tarefas
+
+- [x] Versão Web - Basic Features
+- [x] Personalizações - New Features:
+  - [x] Não duplicar um repositório listado.
+  - [x] Excluir um repositório listado.
+  - [ ] Versão Mobile/Responsiva
 
 ## Stack
 
@@ -23,7 +38,7 @@ Essa aplicação se conecta na `API do Github` disponível no endereço `https:/
 - TypeScript
 - Styled Components
 
-## Features
+## Basic Features
 
 Com o Github Explorer é possível:
 
@@ -32,10 +47,14 @@ Com o Github Explorer é possível:
 * Visualizar uma `lista` de repositórios pesquisados.
 * Clicar em cada repositório listado e ser redirecionado para uma nova rota contendo:
   * Descrição do repositório
-  * Issues
+  * Stars
   * Pull Requets
-* Acionar o botão `voltar`
+  * Issues
 * Persistir a lista de repositórios pesquisados usando o `localStorage` do `React`.
+
+## New Features
+  * Não permitir repositórios duplicados.
+  * Excluir um repositório já listado.
 
 ## Processo de build
 
@@ -46,16 +65,10 @@ yarn
 yarn start
 ```
 - O comando `yarn` resolve as dependências do projeto.
-- O comando `yarn start` inicia em http://localhost:3000.
+- O comando `yarn start` inicia o projeto em http://localhost:3000 por padrão.
 
-## Agradecimento
+## Agradecimentos
 
 Agradeço ao [Netlify](https://www.netlify.com) pelo host e deploy.
 
 Versão `Web` disponível em https://tuf-code-github-explorer.netlify.app
-
-## Funcionalidades
-
-- [x] Versão Web
-- [ ] Versão Mobile/Responsiva
-- [x] Publicar no Netlify
