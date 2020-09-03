@@ -12,24 +12,24 @@
 
 ## Introdução
 
-Aplicação criada dentro do bootcamp GoStack da @Rocketseat. As funcionalidades básicas estão descritas em [Basic Features](#basic-features).
+Aplicação criada através das video aulas do Bootcamp GoStack da [@Rocketseat](https://github.com/rocketseat). O que foi desenvolvido durante as vídeo aulas está descrito em [Basic Features](#basic-features).
 <br>
-Essa aplicação se conecta na `API do Github` disponível no endereço `https://api.github.com` para listar os repositórios de um autor.
+Essa aplicação se conecta na `API do Github` disponível no endereço <https://api.github.com>.
 <br>
-Vamos utilizar a chave `repository_url` da API com o endereço `https://api.github.com/repos/{autor}/{repositório}` passando dentro do input o `autor/repositório` e listar o repositório pesquisado.
+Vamos listar o repositório de um autor utilizando o endereço `repository_url` da API `https://api.github.com/repos/{autor}/{repositório}` passando dentro do input o `autor/repositório` e listar o repositório pesquisado.
 <br>
 Exemplo: `facebook/react`
 <br>
 <br>
-Adicionei duas novas features: disponíveis em [New Features](#new-features).
 
 ## Lista de tarefas
 
-- [x] Versão Web - Basic Features
-- [x] Personalizações - New Features:
+- [x] Versão Web - [Basic Features](#basic-features)
+- [ ] Personalizações - [New Features](#new-features)
+  - [x] Mensagens de erros personalizadas.
   - [x] Não duplicar um repositório listado.
   - [x] Excluir um repositório listado.
-  - [ ] Versão Mobile/Responsiva
+  - [ ] Versão Mobile/Responsivo
 
 ## Stack
 
@@ -45,7 +45,7 @@ Com o Github Explorer é possível:
 * Utilizar a [API](https://api.github.com) do Github.
 * Pesquisar um `autor/repositório`.
 * Visualizar uma `lista` de repositórios pesquisados.
-* Clicar em cada repositório listado e ser redirecionado para uma nova rota contendo:
+* Clicar em cada repositório listado e ser `redirecionado` para uma nova rota contendo:
   * Descrição do repositório
   * Stars
   * Pull Requets
@@ -53,6 +53,7 @@ Com o Github Explorer é possível:
 * Persistir a lista de repositórios pesquisados usando o `localStorage` do `React`.
 
 ## New Features
+  * Mensagens de erro personalizadas.
   * Não permitir repositórios duplicados.
   * Excluir um repositório já listado.
 
