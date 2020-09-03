@@ -71,7 +71,7 @@ const Dashboard: React.FC = () => {
         <input
           value={newRepository}
           onChange={e => setNewRepository(e.target.value)}
-          placeholder="Digite o nome do repositório Ex: facebook/react"
+          placeholder="Ex: facebook/react"
         />
         <button type="submit">Pesquisar</button>
       </Form>
