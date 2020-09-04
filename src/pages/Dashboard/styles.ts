@@ -4,6 +4,14 @@ interface FormProps {
   hasError: boolean;
 }
 
+interface RepositoryProps {
+  isMobile: boolean;
+}
+
+export const Container = styled.div`
+  width: inherit;
+`;
+
 export const Title = styled.h1`
   margin-top: 80px;
   max-width: 450px;
@@ -14,13 +22,13 @@ export const Title = styled.h1`
 
 export const Form = styled.form<FormProps>`
   display: flex;
+  flex-direction: column;
   margin-top: 40px;
   max-width: 700px;
 
   input {
-    flex: 1;
     border: 2px solid var(--white);
-    border-radius: 5px 0 0 5px;
+    border-radius: 5px;
     padding: 0 24px;
     height: 70px;
     color: var(--title);
@@ -28,7 +36,6 @@ export const Form = styled.form<FormProps>`
     ${props =>
       props.hasError &&
       css`
-        border-right: 0;
         border-color: var(--error);
       `}
 
@@ -38,9 +45,9 @@ export const Form = styled.form<FormProps>`
   }
 
   button {
+    margin-top: 5px;
     border: 0;
-    border-radius: 0 5px 5px 0;
-    width: 210px;
+    border-radius: 5px;
     height: 70px;
     font-weight: bold;
     color: var(--white);
@@ -51,9 +58,32 @@ export const Form = styled.form<FormProps>`
       background: var(--button-secondary);
     }
   }
+
+  @media (min-width: 500px) {
+    flex-direction: row;
+
+    input {
+      flex: 1;
+      border-radius: 5px 0 0 5px;
+
+      ${props =>
+        props.hasError &&
+        css`
+          border-right: 0;
+          border-color: var(--error);
+        `}
+    }
+
+    button {
+      margin: 0;
+      border-radius: 0 5px 5px 0;
+      padding: 5px;
+      width: 210px;
+    }
+  }
 `;
 
-export const Repositories = styled.div`
+export const Repositories = styled.div<RepositoryProps>`
   margin-top: 80px;
   max-width: 700px;
 
@@ -67,19 +97,38 @@ export const Repositories = styled.div`
     transition: transform 0.2s;
 
     .close {
-      position: absolute;
-      top: 0;
-      right: 0;
-      margin: 5px;
-      transition: color 0.2s;
-
-      &:hover {
-        color: var(--close);
-      }
+      display: none;
     }
+
+    ${props =>
+      props.isMobile &&
+      css`
+        position: relative;
+
+        .close {
+          display: block;
+          position: absolute;
+          top: 0;
+          right: 0;
+          margin: 5px;
+        }
+      `}
 
     &:hover {
       transform: translateX(10px);
+
+      .close {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 5px;
+        transition: color 0.2s;
+
+        &:hover {
+          color: var(--close);
+        }
+      }
     }
 
     & + a {
@@ -111,6 +160,22 @@ export const Repositories = styled.div`
     svg {
       margin-left: auto;
       color: var(--arrow-right);
+    }
+  }
+
+  @media (max-width: 350px) {
+    a {
+      padding: 12px;
+
+      div {
+        strong {
+          font-size: 15px;
+        }
+
+        p {
+          font-size: 13px;
+        }
+      }
     }
   }
 `;

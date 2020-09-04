@@ -25,11 +25,11 @@ Exemplo: `facebook/react`
 ## Lista de tarefas
 
 - [x] Versão Web - [Basic Features](#basic-features)
-- [ ] Personalizações - [New Features](#new-features)
+- [x] Personalizações - [New Features](#new-features)
   - [x] Mensagens de erros personalizadas.
   - [x] Não duplicar um repositório listado.
   - [x] Excluir um repositório listado.
-  - [ ] Versão Mobile/Responsivo
+  - [x] Versão Mobile/Responsivo
 
 ## Stack
 
@@ -56,6 +56,7 @@ Com o Github Explorer é possível:
   * Mensagens de erro personalizadas.
   * Não permitir repositórios duplicados.
   * Excluir um repositório já listado.
+  * Versão Mobile/Responsivo.
 
 ## Processo de build
 

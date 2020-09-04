@@ -1,12 +1,13 @@
 import React, { useState, useEffect, FormEvent, MouseEvent } from 'react';
 import { FiChevronRight, FiX } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import { isMobile } from 'react-device-detect';
 
 import api from '../../services/api';
 
 import logoImg from '../../assets/logo.svg';
 
-import { Title, Form, Repositories, Error } from './styles';
+import { Container, Title, Form, Repositories, Error } from './styles';
 
 interface Repository {
   full_name: string;
@@ -27,7 +28,8 @@ const Dashboard: React.FC = () => {
     );
 
     if (storedRepositories) {
-      return JSON.parse(storedRepositories);
+      const parsedRepositories = JSON.parse(storedRepositories);
+      return parsedRepositories;
     }
     return [];
   });
@@ -90,43 +92,45 @@ const Dashboard: React.FC = () => {
 
   return (
     <>
-      <img src={logoImg} alt="Github Explorer" />
-      <Title>Explore repositórios no Github</Title>
+      <Container>
+        <img src={logoImg} alt="Github Explorer" />
+        <Title>Explore repositórios no Github</Title>
 
-      <Form hasError={!!inputError} onSubmit={handleAddRepository}>
-        <input
-          value={newRepository}
-          onChange={e => setNewRepository(e.target.value)}
-          placeholder="Ex: facebook/react"
-        />
-        <button type="submit">Pesquisar</button>
-      </Form>
+        <Form hasError={!!inputError} onSubmit={handleAddRepository}>
+          <input
+            value={newRepository}
+            onChange={e => setNewRepository(e.target.value)}
+            placeholder="Ex: facebook/react"
+          />
+          <button type="submit">Pesquisar</button>
+        </Form>
 
-      {inputError && <Error>{inputError}</Error>}
+        {inputError && <Error>{inputError}</Error>}
 
-      <Repositories>
-        {repositories.map(repository => (
-          <Link
-            key={repository.full_name}
-            to={`/repository/${repository.full_name}`}
-          >
-            <img
-              src={repository.owner.avatar_url}
-              alt={repository.owner.login}
-            />
-            <div>
-              <strong>{repository.full_name}</strong>
-              <p>{repository.description}</p>
-            </div>
-            <FiChevronRight size={20} />
-            <FiX
-              size={20}
-              className="close"
-              onClick={e => handleCloseRepository(e, repository.full_name)}
-            />
-          </Link>
-        ))}
-      </Repositories>
+        <Repositories isMobile={isMobile}>
+          {repositories.map(repository => (
+            <Link
+              key={repository.full_name}
+              to={`/repository/${repository.full_name}`}
+            >
+              <img
+                src={repository.owner.avatar_url}
+                alt={repository.owner.login}
+              />
+              <div>
+                <strong>{repository.full_name}</strong>
+                <p>{repository.description}</p>
+              </div>
+              <FiChevronRight size={20} />
+              <FiX
+                size={20}
+                className="close"
+                onClick={e => handleCloseRepository(e, repository.full_name)}
+              />
+            </Link>
+          ))}
+        </Repositories>
+      </Container>
     </>
   );
 };
