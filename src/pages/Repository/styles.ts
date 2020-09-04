@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+  width: inherit;
+  min-width: 300px;
+`;
+
 export const Header = styled.div`
   display: flex;
   align-items: center;
@@ -28,6 +33,7 @@ export const RepositoryInfo = styled.section`
   header {
     display: flex;
     align-items: center;
+    width: inherit;
 
     img {
       border-radius: 50%;
@@ -36,6 +42,7 @@ export const RepositoryInfo = styled.section`
     }
 
     div {
+      flex: 1;
       margin-left: 24px;
 
       strong {
@@ -54,11 +61,14 @@ export const RepositoryInfo = styled.section`
   ul {
     margin-top: 40px;
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 400px;
     list-style: none;
 
     li {
       & + li {
-        margin-left: 80px;
+        /* margin-left: 80px; */
       }
 
       strong {
@@ -71,6 +81,18 @@ export const RepositoryInfo = styled.section`
         margin-top: 4px;
         display: block;
         color: var(--text);
+      }
+    }
+  }
+
+  @media (max-width: 550px) {
+    ul {
+      flex-direction: column;
+      text-align: center;
+      li {
+        & + li {
+          margin-top: 10px;
+        }
       }
     }
   }
@@ -115,6 +137,17 @@ export const Issues = styled.div`
     svg {
       margin-left: auto;
       color: var(--arrow-right);
+    }
+  }
+
+  @media (max-width: 550px) {
+    flex-direction: column;
+    margin-top: 40px;
+    max-width: 500px;
+
+    a {
+      width: inherit;
+      min-width: 400px;
     }
   }
 `;

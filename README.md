@@ -30,6 +30,7 @@ Exemplo: `facebook/react`
   - [x] Não duplicar um repositório listado.
   - [x] Excluir um repositório listado.
   - [x] Versão Mobile/Responsivo
+  - [x] Verificar se a aplicação está sendo exibida em um dispositivo mobile ou desktop para exibir o ícone de excluir um repositório sem efeito de hover.
 
 ## Stack
 
@@ -54,9 +55,13 @@ Com o Github Explorer é possível:
 
 ## New Features
   * Mensagens de erro personalizadas.
+    - Mostra o que foi digitado na mensagem de erro.
   * Não permitir repositórios duplicados.
+    - Valida se o repositório já está listado e mostra mensagem de erro se necessário.
   * Excluir um repositório já listado.
+    - Verifica se a aplicação está sendo visualizada em um dispositivo Mobile ou Desktop. Dessa forma, se for Mobile, o ícone de excluir (x) fica sempre visível no repositório listado. Se for Desktop, ao passar o mouse no repositório listado o ícone de excluir é exibido.
   * Versão Mobile/Responsivo.
+    - Adicionado responsividade na aplicação para as páginas de Dashboard e Repository.
 
 ## Processo de build
 
