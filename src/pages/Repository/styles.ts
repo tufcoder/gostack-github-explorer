@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: inherit;
-  min-width: 300px;
 `;
 
 export const Header = styled.div`
@@ -25,14 +24,20 @@ export const Header = styled.div`
   svg {
     margin-right: 4px;
   }
+
+  @media (max-width: 550px) {
+    justify-content: space-evenly;
+  }
 `;
 
 export const RepositoryInfo = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin-top: 80px;
 
   header {
     display: flex;
-    align-items: center;
     width: inherit;
 
     img {
@@ -86,9 +91,26 @@ export const RepositoryInfo = styled.section`
   }
 
   @media (max-width: 550px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    header {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      div {
+        margin: 0;
+        text-align: center;
+      }
+    }
+
     ul {
       flex-direction: column;
-      text-align: center;
+      align-items: center;
+      justify-content: center;
+
       li {
         & + li {
           margin-top: 10px;
@@ -99,7 +121,11 @@ export const RepositoryInfo = styled.section`
 `;
 
 export const Issues = styled.div`
+  display: flex;
+  flex-direction: column;
   margin-top: 80px;
+  padding: 10px;
+  width: inherit;
 
   a {
     display: flex;
@@ -109,6 +135,7 @@ export const Issues = styled.div`
     text-decoration: none;
     background: var(--white);
     transition: transform 0.2s;
+    width: inherit;
 
     &:hover {
       transform: translateX(10px);
@@ -146,8 +173,12 @@ export const Issues = styled.div`
     max-width: 500px;
 
     a {
-      width: inherit;
-      min-width: 400px;
+      min-width: 300px;
+      div {
+        strong {
+          font-size: 100%;
+        }
+      }
     }
   }
 `;
