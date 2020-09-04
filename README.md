@@ -71,6 +71,6 @@ yarn start
 
 ## Agradecimentos
 
-Agradeço ao [Netlify](https://www.netlify.com) pelo host e deploy.
+Agradeço ao [Netlify](https://app.netlify.com) pelo host e deploy.
 
 Versão `Web` disponível em https://tuf-code-github-explorer.netlify.app

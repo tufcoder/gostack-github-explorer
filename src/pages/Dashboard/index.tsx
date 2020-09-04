@@ -99,7 +99,7 @@ const Dashboard: React.FC = () => {
         <Form hasError={!!inputError} onSubmit={handleAddRepository}>
           <input
             value={newRepository}
-            onChange={e => setNewRepository(e.target.value)}
+            onChange={e => setNewRepository(e.target.value.toLowerCase())}
             placeholder="Ex: facebook/react"
           />
           <button type="submit">Pesquisar</button>
