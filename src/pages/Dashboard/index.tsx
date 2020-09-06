@@ -1,5 +1,5 @@
 import React, { useState, useEffect, FormEvent, MouseEvent } from 'react';
-import { FiChevronRight, FiX } from 'react-icons/fi';
+import { FiChevronRight, FiXCircle } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
 
@@ -122,7 +122,7 @@ const Dashboard: React.FC = () => {
                 <p>{repository.description}</p>
               </div>
               <FiChevronRight size={20} />
-              <FiX
+              <FiXCircle
                 size={20}
                 className="close"
                 onClick={e => handleCloseRepository(e, repository.full_name)}
