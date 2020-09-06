@@ -112,6 +112,8 @@ export const RepositoryInfo = styled.section`
       justify-content: center;
 
       li {
+        text-align: center;
+
         & + li {
           margin-top: 10px;
         }
